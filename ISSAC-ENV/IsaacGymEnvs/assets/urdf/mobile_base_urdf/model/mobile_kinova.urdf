@@ -1,0 +1,1949 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="mobile">
+  <!-- http://wiki.ros.org/simulator_gazebo/Tutorials/ListOfMaterials -->
+  <!-- Bigger kp make it more stable -->
+  <gazebo reference="BaseLink">
+    <kp value="10000000000.0"/>
+    <kd value="1.0"/>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <self_collide>0</self_collide>
+  </gazebo>
+  <gazebo reference="ArmBase">
+    <kp value="10000000000.0"/>
+    <kd value="1.0"/>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <self_collide>0</self_collide>
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+  <gazebo reference="DriWheel_R">
+    <kp value="1000000000000.0"/>
+    <kd value="1.0"/>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <gazebo reference="DriWheel_L">
+    <kp value="1000000000000.0"/>
+    <kd value="1.0"/>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <gazebo reference="UniWheel_LF">
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+    <material>Gazebo/BlueTransparent</material>
+  </gazebo>
+  <gazebo reference="UniWheel_RF">
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+    <material>Gazebo/BlueTransparent</material>
+  </gazebo>
+  <gazebo reference="UniWheel_LB">
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+    <material>Gazebo/BlueTransparent</material>
+  </gazebo>
+  <gazebo reference="UniWheel_RB">
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+    <material>Gazebo/BlueTransparent</material>
+  </gazebo>
+  <gazebo reference="HeadShell">
+    <kp value="10000000000.0"/>
+    <kd value="1.0"/>
+    <material>Gazebo/RedBright</material>
+  </gazebo>
+  <gazebo reference="Radar_2D">
+    <kp value="10000000000.0"/>
+    <kd value="1.0"/>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="VisualPoint1">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="VisualPoint2">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="VisualPoint3">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="VisualWheel_L">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="VisualWheel_R">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+  <gazebo reference="j2s7s300_link_base">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="j2s7s300_link_1">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="j2s7s300_link_2">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="j2s7s300_link_3">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="j2s7s300_link_4">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="j2s7s300_link_5">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="j2s7s300_link_6">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="robotiq_base_link">
+    <material>Gazebo/Grey</material>
+    <self_collide>0</self_collide>
+  </gazebo>
+  <gazebo reference="right_inner_knuckle">
+    <self_collide>0</self_collide>
+  </gazebo>
+  <gazebo reference="right_outer_knuckle">
+    <self_collide>0</self_collide>
+  </gazebo>
+  <gazebo reference="right_outer_finger">
+    <self_collide>0</self_collide>
+  </gazebo>
+  <gazebo reference="right_inner_finger">
+  <material>Gazebo/Red</material>
+    <self_collide>0</self_collide>
+  </gazebo>
+  <gazebo reference="left_inner_knuckle">
+    <self_collide>0</self_collide>
+  </gazebo>
+  <gazebo reference="left_outer_knuckle">
+    <self_collide>0</self_collide>
+  </gazebo>
+  <gazebo reference="left_outer_finger">
+    <self_collide>0</self_collide>
+  </gazebo>
+  <gazebo reference="left_inner_finger">
+    <self_collide>0</self_collide>
+  </gazebo>
+  <gazebo reference="right_inner_finger_pad">
+    <self_collide>1</self_collide>
+  </gazebo>
+  <gazebo reference="left_inner_finger_pad">
+    <self_collide>1</self_collide>
+  </gazebo>
+  <gazebo reference="mobile_end_effector">
+    <material>Gazebo/GreenTransparent</material>
+    <self_collide>0</self_collide>
+  </gazebo>
+  <!-- Mobile base -->
+  <link
+    name="BaseLink">
+    <inertial>
+      <origin
+        xyz="-0.0311802154982621 1.17504338130459E-05 0.315211906825966"
+        rpy="0 0 0" />
+      <mass
+        value="8.7968329124645" />
+      <inertia
+        ixx="0.186258716514256"
+        ixy="-1.48518742834124E-05"
+        ixz="-0.00154696059136798"
+        iyy="0.203780508528874"
+        iyz="1.05129920553985E-05"
+        izz="0.079091000039605" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/BaseLink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.025"/>
+      <geometry>
+        <box size="0.5 0.14 0.15"/>
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Radar_2D">
+    <inertial>
+      <origin
+        xyz="6.20383105998101E-10 0.0216642806157543 -9.5633137657869E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.111414847916921" />
+      <inertia
+        ixx="4.42568757050089E-05"
+        ixy="5.54707912683361E-13"
+        ixz="-1.43915040446869E-12"
+        iyy="4.24275016408878E-05"
+        iyz="-1.99911186975257E-07"
+        izz="4.38954994136943E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/Lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.258823529411765 0.258823529411765 0.258823529411765 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/Lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_Radar_2D"
+    type="fixed">
+    <origin
+      xyz="0.1985 0 0.095"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="BaseLink" />
+    <child
+      link="Radar_2D" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="UniWheelBase_RF">
+    <inertial>
+      <origin
+        xyz="-0.0289122121608881 7.96029908656237E-14 -0.0182260960322876"
+        rpy="0 0 0" />
+      <mass
+        value="0.0847351495375796" />
+      <inertia
+        ixx="3.34756139191196E-05"
+        ixy="7.50114488966578E-17"
+        ixz="-1.16340041790674E-05"
+        iyy="6.07135705376021E-05"
+        iyz="3.20838303655994E-17"
+        izz="3.49474283390519E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/UniWheelPivot_RF.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="JT_UniWheelBase_RF"
+    type="continuous">
+    <origin
+      xyz="0.185 -0.1585 -0.0043169"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="BaseLink" />
+    <child
+      link="UniWheelBase_RF" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1000000000000"
+      upper="1000000000000"
+      effort="100"
+      velocity="30" />
+    <dynamics
+      damping="0.01"
+      friction="0.001"/>
+  </joint>
+  <link
+    name="UniWheel_RF">
+    <inertial>
+      <origin
+        xyz="2.82717186675385E-08 2.14311952628776E-08 3.03619636168873E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.131455385692783" />
+      <inertia
+        ixx="4.67616618745289E-05"
+        ixy="-2.20955469793984E-11"
+        ixz="-5.77989335033432E-10"
+        iyy="8.85134138944847E-05"
+        iyz="-2.24056751711574E-11"
+        izz="4.67628266240816E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/UniWheel_RF.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.57079632679489661923 0 0" />
+      <geometry>
+        <cylinder length="0.001" radius="0.0375" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_UniWheel_RF"
+    type="continuous">
+    <origin
+      xyz="-0.042183 0 -0.024"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="UniWheelBase_RF" />
+    <child
+      link="UniWheel_RF" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1000000000000"
+      upper="1000000000000"
+      effort="100"
+      velocity="30" />
+    <dynamics
+      damping="0.01"
+      friction="0.001"/>
+  </joint>
+  <link
+    name="UniWheelBase_LF">
+    <inertial>
+      <origin
+        xyz="-0.028912212160888 7.96029908656237E-14 -0.0182260960322876"
+        rpy="0 0 0" />
+      <mass
+        value="0.0847351495375796" />
+      <inertia
+        ixx="3.34756139191196E-05"
+        ixy="7.50107342044398E-17"
+        ixz="-1.16340041790674E-05"
+        iyy="6.07135705376022E-05"
+        iyz="3.20810669265241E-17"
+        izz="3.49474283390519E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/UniWheelPivot_LF.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="JT_UniWheelBase_LF"
+    type="continuous">
+    <origin
+      xyz="0.185 0.1585 -0.00431688785512865"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="BaseLink" />
+    <child
+      link="UniWheelBase_LF" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1000000000000"
+      upper="1000000000000"
+      effort="100"
+      velocity="30" />
+    <dynamics
+      damping="0.01"
+      friction="0.001"/>
+  </joint>
+  <link
+    name="UniWheel_LF">
+    <inertial>
+      <origin
+        xyz="-1.63190614910214E-08 2.14311952073665E-08 3.81421963735473E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.131455385692783" />
+      <inertia
+        ixx="4.67630636523249E-05"
+        ixy="1.15437256666207E-11"
+        ixz="-4.25528389794276E-11"
+        iyy="8.85134138944848E-05"
+        iyz="-2.92740747055511E-11"
+        izz="4.67614248462869E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/UniWheel_LF.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.57079632679489661923 0 0" />
+      <geometry>
+        <cylinder length="0.001" radius="0.0375" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_UniWheel_LF"
+    type="continuous">
+    <origin
+      xyz="-0.042183 0 -0.024"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="UniWheelBase_LF" />
+    <child
+      link="UniWheel_LF" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1000000000000"
+      upper="1000000000000"
+      effort="100"
+      velocity="30" />
+    <dynamics
+      damping="0.01"
+      friction="0.001"/>
+  </joint>
+  <link
+    name="UniWheelBase_RB">
+    <inertial>
+      <origin
+        xyz="-0.0289122121598695 7.96029908656237E-14 -0.0182260960322876"
+        rpy="0 0 0" />
+      <mass
+        value="0.0847351495375796" />
+      <inertia
+        ixx="3.34756139191196E-05"
+        ixy="7.50002400117997E-17"
+        ixz="-1.16340041790674E-05"
+        iyy="6.07135705376021E-05"
+        iyz="3.2068961265564E-17"
+        izz="3.49474283390519E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/UniWheelPivot_RB.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="JT_UniWheelBase_RB"
+    type="continuous">
+    <origin
+      xyz="-0.185 -0.1585 -0.00431688785512863"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="BaseLink" />
+    <child
+      link="UniWheelBase_RB" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1000000000000"
+      upper="1000000000000"
+      effort="100"
+      velocity="30" />
+    <dynamics
+      damping="0.01"
+      friction="0.001"/>
+  </joint>
+  <link
+    name="UniWheel_RB">
+    <inertial>
+      <origin
+        xyz="-1.63190614563269E-08 2.14311951796109E-08 3.81421963388529E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.131455385692783" />
+      <inertia
+        ixx="4.67630636523245E-05"
+        ixy="1.15437256434612E-11"
+        ixz="-4.25528389606465E-11"
+        iyy="8.85134138944848E-05"
+        iyz="-2.92740747818311E-11"
+        izz="4.67614248462865E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/UniWheel_RB.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.57079632679489661923 0 0" />
+      <geometry>
+        <cylinder length="0.001" radius="0.0375" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_UniWheel_RB"
+    type="continuous">
+    <origin
+      xyz="-0.042183 0 -0.024"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="UniWheelBase_RB" />
+    <child
+      link="UniWheel_RB" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1000000000000"
+      upper="1000000000000"
+      effort="100"
+      velocity="30" />
+    <dynamics
+      damping="0.01"
+      friction="0.001"/>
+  </joint>
+  <link
+    name="UniWheelBase_LB">
+    <inertial>
+      <origin
+        xyz="-0.0289122121598694 7.95752352900081E-14 -0.0182260960322876"
+        rpy="0 0 0" />
+      <mass
+        value="0.0847351495375797" />
+      <inertia
+        ixx="3.34756139191196E-05"
+        ixy="7.50052988252789E-17"
+        ixz="-1.16340041790674E-05"
+        iyy="6.07135705376022E-05"
+        iyz="3.20738964835275E-17"
+        izz="3.49474283390519E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/UniWheelPivot_LB.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="JT_UniWheelBase_LB"
+    type="continuous">
+    <origin
+      xyz="-0.185 0.1585 -0.0043169"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="BaseLink" />
+    <child
+      link="UniWheelBase_LB" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1000000000000"
+      upper="1000000000000"
+      effort="100"
+      velocity="30" />
+    <dynamics
+      damping="0.01"
+      friction="0.001"/>
+  </joint>
+  <link
+    name="UniWheel_LB">
+    <inertial>
+      <origin
+        xyz="-1.63190614910214E-08 2.14311952073665E-08 3.81421963596695E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.131455385692783" />
+      <inertia
+        ixx="4.67630636523245E-05"
+        ixy="1.15437256326157E-11"
+        ixz="-4.25528389682312E-11"
+        iyy="8.85134138944848E-05"
+        iyz="-2.92740746535266E-11"
+        izz="4.67614248462866E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/UniWheel_LB.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.57079632679489661923 0 0" />
+      <geometry>
+        <cylinder length="0.001" radius="0.0375" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_UniWheel_LB"
+    type="continuous">
+    <origin
+      xyz="-0.0421831121443616 0 -0.024"
+      rpy="0 -1.5707963267949 0" />
+    <parent
+      link="UniWheelBase_LB" />
+    <child
+      link="UniWheel_LB" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1000000000000"
+      upper="1000000000000"
+      effort="100"
+      velocity="30" />
+    <dynamics
+      damping="0.01"
+      friction="0.001"/>
+  </joint>
+  <link
+    name="DriWheel_L">
+    <inertial>
+      <origin
+        xyz="7.00910488723022E-19 2.29657315570231E-06 8.67361737988404E-19"
+        rpy="0 0 0" />
+      <mass
+        value="0.991630823915776" />
+      <inertia
+        ixx="0.00184507083744811"
+        ixy="-3.379158989595E-21"
+        ixz="3.3889717648391E-36"
+        iyy="0.00334198159600445"
+        iyz="5.46421202140047E-36"
+        izz="0.00184507083744811" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/DriWheel_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="1.57079632679489661923 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.001" radius="0.0843"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_DriWheel_L"
+    type="continuous">
+    <origin
+      xyz="0 0.19865 0"
+      rpy="0 0 0" />
+    <parent
+      link="BaseLink" />
+    <child
+      link="DriWheel_L" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1000000000000"
+      upper="1000000000000"
+      effort="1000"
+      velocity="30" />
+    <dynamics
+      damping="0.01"
+      friction="0.001"/>
+  </joint>
+  <link
+    name="DriWheel_R">
+    <inertial>
+      <origin
+        xyz="3.80487199906632E-18 -2.29657315570231E-06 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.991630823915776" />
+      <inertia
+        ixx="0.00184507083744811"
+        ixy="4.54703773356873E-19"
+        ixz="1.69406589450849E-21"
+        iyy="0.00334198159600445"
+        iyz="-8.74951063712164E-22"
+        izz="0.00184507083744811" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/DriWheel_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="1.57079632679489661923 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.001" radius="0.0843"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_DriWheel_R"
+    type="continuous">
+    <origin
+      xyz="0 -0.19865 0"
+      rpy="0 0 0" />
+    <parent
+      link="BaseLink" />
+    <child
+      link="DriWheel_R" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1000000000000"
+      upper="1000000000000"
+      effort="1000"
+      velocity="30" />
+    <dynamics
+      damping="0.01"
+      friction="0.001"/>
+  </joint>
+  <link
+    name="ArmBase">
+    <inertial>
+      <origin
+        xyz="-0.0306974842711243 -0.000955398394232504 0.0354516942274083"
+        rpy="0 0 0" />
+      <mass
+        value="0.833236204792763" />
+      <inertia
+        ixx="0.00262276376774655"
+        ixy="-6.9599475549375E-07"
+        ixz="5.15168201230645E-05"
+        iyy="0.00186363387009509"
+        iyz="8.78496595339785E-07"
+        izz="0.00105932573712803" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/ArmBase.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.796078431372549 0.823529411764706 0.937254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/ArmBase.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_ArmBase"
+    type="prismatic">
+    <origin
+      xyz="0.063 0.001 0.2955"
+      rpy="0 0 0" />
+    <parent
+      link="BaseLink" />
+    <child
+      link="ArmBase" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0.585"
+      effort="1000"
+      velocity="0.06" />
+  </joint>
+  <link
+    name="Pantilt_PanLink">
+    <inertial>
+      <origin
+        xyz="0.000554299127061951 -3.49485223612167E-06 0.0547778067465923"
+        rpy="0 0 0" />
+      <mass
+        value="0.226677336025464" />
+      <inertia
+        ixx="0.000142637008072705"
+        ixy="2.77462848098286E-10"
+        ixz="4.76129503110727E-17"
+        iyy="7.22794203939845E-05"
+        iyz="-2.37581213250001E-16"
+        izz="0.000154987832286111" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/PanSet.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/PanSet.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_Pantilt_PanLink"
+    type="continuous">
+    <origin
+      xyz="0 0 1.0091"
+      rpy="0 0 0" />
+    <parent
+      link="BaseLink" />
+    <child
+      link="Pantilt_PanLink" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="20"
+      lower="-100000"
+      upper="100000"
+      velocity="30"/>
+    <dynamics
+      damping="0.2"
+      friction="0.0"/>
+  </joint>
+  <link
+    name="Pantilt_TiltLink">
+    <inertial>
+      <origin
+        xyz="0.00627852264147075 -1.3351967463604E-05 0.0451641775455638"
+        rpy="0 0 0" />
+      <mass
+        value="0.337334688556195" />
+      <inertia
+        ixx="0.00094709872727437"
+        ixy="2.97365722461131E-07"
+        ixz="-4.12017268066108E-06"
+        iyy="0.000509489116148601"
+        iyz="-2.57100827181398E-08"
+        izz="0.00142454025924575" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/TiltSet.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/TiltSet.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_Pantilt_TiltLink"
+    type="continuous">
+    <origin
+      xyz="0 0 0.10056"
+      rpy="0 0 0" />
+    <parent
+      link="Pantilt_PanLink" />
+    <child
+      link="Pantilt_TiltLink" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="20"
+      lower="-100000"
+      upper="100000"
+      velocity="30"/>
+    <dynamics
+      damping="0.2"
+      friction="0.0"/>
+  </joint>
+  <!-- Shell -->
+  <link
+    name="BodyShell">
+    <inertial>
+      <origin
+        xyz="-0.00438421880768753 8.31574203594421E-05 0.375180994226469"
+        rpy="0 0 0" />
+      <mass
+        value="6.96027412074526" />
+      <inertia
+        ixx="0.54240738104732"
+        ixy="-3.13858711109322E-05"
+        ixz="-0.0126584262855019"
+        iyy="0.492210055619746"
+        iyz="4.12720577585476E-05"
+        izz="0.251787815510178" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/BodyShell.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/BodyShell.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_BodyShell"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="BaseLink" />
+    <child
+      link="BodyShell" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="HeadShell">
+    <inertial>
+      <origin
+        xyz="-0.00389933532083145 0.0427764441730733 0.87165278052167"
+        rpy="0 0 0" />
+      <mass
+        value="0.354445891112852" />
+      <inertia
+        ixx="0.00118414996131452"
+        ixy="-0.000144474967856168"
+        ixz="-1.2439502307308E-06"
+        iyy="0.00211641739988207"
+        iyz="8.93972375142148E-06"
+        izz="0.00314939565459275" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/HeadShell.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/HeadShell.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_HeadShell"
+    type="fixed">
+    <origin
+      xyz="0.049958 -0.0025918 -0.81864"
+      rpy="-0.019346 -0.0029375 1.4201" />
+    <parent
+      link="Pantilt_TiltLink" />
+    <child
+      link="HeadShell" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="NeckShell">
+    <inertial>
+      <origin
+        xyz="-0.00241306537212758 0.033137204350725 0.788402712710511"
+        rpy="0 0 0" />
+      <mass
+        value="0.137012264555895" />
+      <inertia
+        ixx="0.000183280169998726"
+        ixy="-2.80282933564336E-05"
+        ixz="-3.68462241307317E-07"
+        iyy="0.000363621283724574"
+        iyz="2.46058968589238E-06"
+        izz="0.000261586764660329" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/NeckShell.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base_urdf/model/base/v4/meshes/NeckShell.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_NeckShell"
+    type="fixed">
+    <origin
+      xyz="-0.033931 0.0025889 -0.72354"
+      rpy="0 0 -1.7215" />
+    <parent
+      link="Pantilt_PanLink" />
+    <child
+      link="NeckShell" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <!-- Base visualization -->
+  <link name="VisualWheel_L">
+    <visual>
+      <origin xyz="0 0.024 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.001 0.15"/>
+      </geometry>
+    </visual>
+  </link>
+  <joint name="JT_VisualWheel_L"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="DriWheel_L" />
+    <child
+      link="VisualWheel_L" />
+  </joint>
+  <link name="VisualWheel_R">
+    <visual>
+      <origin xyz="0 -0.024 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.001 0.15"/>
+      </geometry>
+    </visual>
+  </link>
+  <joint name="JT_VisualWheel_R"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="DriWheel_R" />
+    <child
+      link="VisualWheel_R" />
+  </joint>
+  <link name="VisualPoint1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <joint name="JT_VisualPoint1"
+    type="fixed">
+    <origin
+      xyz="0.063 0 0.55"
+      rpy="0 0 0" />
+    <parent
+      link="BaseLink" />
+    <child
+      link="VisualPoint1" />
+  </joint>
+  <link name="VisualPoint2">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <joint name="JT_VisualPoint2"
+    type="fixed">
+    <origin
+      xyz="0.063 0 0.95"
+      rpy="0 0 0" />
+    <parent
+      link="BaseLink" />
+    <child
+      link="VisualPoint2" />
+  </joint>
+  <link name="VisualPoint3">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <joint name="JT_VisualPoint3"
+    type="fixed">
+    <origin
+      xyz="0.063 0 1.15"
+      rpy="0 0 0" />
+    <parent
+      link="BaseLink" />
+    <child
+      link="VisualPoint3" />
+  </joint>
+  <!-- Kinova arm -->
+  <link name="j2s7s300_link_base">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/base.dae"/>
+      </geometry>
+      <material name="carbon_fiber">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+      </material>
+    </visual>
+    <inertial>
+      <mass value="0.46784"/>
+      <origin rpy="0 0 0" xyz="0 0 0.1255"/>
+      <inertia ixx="0.000951270861568" ixy="0" ixz="0" iyy="0.000951270861568" iyz="0" izz="0.000374272"/>
+    </inertial>
+  </link>
+  <joint name="j2s7s300_joint_base" type="fixed">
+    <parent link="ArmBase"/>
+    <child link="j2s7s300_link_base"/>
+    <axis xyz="0 0 0"/>
+    <limit effort="50" lower="0" upper="0" velocity="30"/>
+    <origin rpy="0 1.57079632679489661923 0" xyz="0 0 0"/>
+    <dynamics damping=".2" friction=".0"/>
+  </joint>
+  <link name="j2s7s300_link_1">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/shoulder.dae"/>
+      </geometry>
+      <material name="carbon_fiber">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+      </material>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/ring_big.STL"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <mass value="0.7477"/>
+      <origin xyz="0 -0.002 -0.0605"/>
+      <inertia ixx="0.00152031725204" ixy="0" ixz="0" iyy="0.00152031725204" iyz="0" izz="0.00059816"/>
+    </inertial>
+  </link>
+  <joint name="j2s7s300_joint_1" type="continuous">
+    <parent link="j2s7s300_link_base"/>
+    <child link="j2s7s300_link_1"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="50" lower="-6.28318530718" upper="6.28318530718" velocity="30"/>
+    <origin rpy="0 3.14159265358979323846 0" xyz="0 0 0.15675"/>
+    <dynamics damping=".2" friction=".0"/>
+  </joint>
+  <transmission name="j2s7s300_joint_1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="j2s7s300_joint_1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="j2s7s300_joint_1_actuator">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>160</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="j2s7s300_link_2">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/arm_half_1.dae"/>
+      </geometry>
+      <material name="carbon_fiber">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+      </material>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/ring_big.STL"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/arm_half_1.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.8447"/>
+      <origin xyz="0 -0.103563213 0"/>
+      <inertia ixx="0.00247073761701" ixy="0" ixz="0" iyy="0.000380115" iyz="0" izz="0.00247073761701"/>
+    </inertial>
+  </link>
+  <joint name="j2s7s300_joint_2" type="revolute">
+    <parent link="j2s7s300_link_1"/>
+    <child link="j2s7s300_link_2"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="50" lower="0.820304748437" upper="5.46288055874" velocity="30"/>
+    <origin rpy="-1.57079632679489661923 0 3.14159265358979323846" xyz="0 0.0016 -0.11875"/>
+    <dynamics damping=".2" friction=".0"/>
+  </joint>
+  <transmission name="j2s7s300_joint_2_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="j2s7s300_joint_2">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="j2s7s300_joint_2_actuator">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>160</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="j2s7s300_link_3">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/arm_half_2.dae"/>
+      </geometry>
+      <material name="carbon_fiber">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+      </material>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/ring_big.STL"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/arm_half_2.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.8447"/>
+      <origin xyz="0 0 -0.1022447445"/>
+      <inertia ixx="0.00247073761701" ixy="0" ixz="0" iyy="0.00247073761701" iyz="0" izz="0.000380115"/>
+    </inertial>
+  </link>
+  <joint name="j2s7s300_joint_3" type="continuous">
+    <parent link="j2s7s300_link_2"/>
+    <child link="j2s7s300_link_3"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="50" lower="-6.28318530718" upper="6.28318530718" velocity="30"/>
+    <origin rpy="-1.57079632679489661923 0 0" xyz="0 -0.205 0"/>
+    <dynamics damping=".2" friction=".0"/>
+  </joint>
+  <transmission name="j2s7s300_joint_3_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="j2s7s300_joint_3">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="j2s7s300_joint_3_actuator">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>160</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="j2s7s300_link_4">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/forearm.dae"/>
+      </geometry>
+      <material name="carbon_fiber">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+      </material>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/ring_small.STL"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/forearm.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.6763"/>
+      <origin xyz="0 0.081 -0.0086"/>
+      <inertia ixx="0.00142022431908" ixy="0" ixz="0" iyy="0.000304335" iyz="0" izz="0.00142022431908"/>
+    </inertial>
+  </link>
+  <joint name="j2s7s300_joint_4" type="revolute">
+    <parent link="j2s7s300_link_3"/>
+    <child link="j2s7s300_link_4"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="40" lower="0.523598775598" upper="5.75958653158" velocity="30"/>
+    <origin rpy="1.57079632679489661923 0 3.14159265358979323846" xyz="0 0 -0.205"/>
+    <dynamics damping=".2" friction=".0"/>
+  </joint>
+  <transmission name="j2s7s300_joint_4_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="j2s7s300_joint_4">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="j2s7s300_joint_4_actuator">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>160</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="j2s7s300_link_5">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/wrist_spherical_1.dae"/>
+      </geometry>
+      <material name="carbon_fiber">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+      </material>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/ring_small.STL"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/wrist_spherical_1.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.463"/>
+      <origin xyz="0 0.0028848942 -0.0541932613"/>
+      <inertia ixx="0.0004321316048" ixy="0" ixz="0" iyy="0.0004321316048" iyz="0" izz="9.26e-05"/>
+    </inertial>
+  </link>
+  <joint name="j2s7s300_joint_5" type="continuous">
+    <parent link="j2s7s300_link_4"/>
+    <child link="j2s7s300_link_5"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-6.28318530718" upper="6.28318530718" velocity="30"/>
+    <origin rpy="-1.57079632679489661923 0 3.14159265358979323846" xyz="0 0.2073 -0.0114"/>
+    <dynamics damping=".2" friction=".0"/>
+  </joint>
+  <transmission name="j2s7s300_joint_5_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="j2s7s300_joint_5">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="j2s7s300_joint_5_actuator">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>160</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="j2s7s300_link_6">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/wrist_spherical_2.dae"/>
+      </geometry>
+      <material name="carbon_fiber">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+      </material>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/ring_small.STL"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/arm/kinova/meshes/wrist_spherical_2.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.463"/>
+      <origin xyz="0 0.0497208855 -0.0028562765"/>
+      <inertia ixx="0.0004321316048" ixy="0" ixz="0" iyy="9.26e-05" iyz="0" izz="0.0004321316048"/>
+    </inertial>
+  </link>
+  <joint name="j2s7s300_joint_6" type="revolute">
+    <parent link="j2s7s300_link_5"/>
+    <child link="j2s7s300_link_6"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="1.1344640138" upper="5.14872129338" velocity="30"/>
+    <origin rpy="1.57079632679489661923 0 3.14159265358979323846" xyz="0 0 -0.10375"/>
+    <dynamics damping=".2" friction=".0"/>
+  </joint>
+  <transmission name="j2s7s300_joint_6_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="j2s7s300_joint_6">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="j2s7s300_joint_6_actuator">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>160</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="robotiq_base_link">
+    <inertial>
+      <origin
+        rpy="0 0 0"
+        xyz="8.625E-08 -4.6583E-06 0.03145"/>
+      <mass
+        value="0.22652"/>
+      <inertia
+        ixx="0.00020005"
+        ixy="-4.2442E-10"
+        ixz="-2.9069E-10"
+        iyy="0.00017832"
+        iyz="-3.4402E-08"
+        izz="0.00013478"/>
+    </inertial>
+    <visual>
+      <origin
+        rpy="0 0 0"
+        xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/visual/robotiq_arg2f_85_base_link.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/collision/robotiq_arg2f_85_base_link.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j2s7s300_joint_7" type="revolute">
+    <parent link="j2s7s300_link_6"/>
+    <child link="robotiq_base_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="20" lower="-6.28" upper="6.28" velocity="30"/>
+    <origin rpy="-1.570796 0 0" xyz="0 0.10375 0"/>
+    <!-- <origin rpy="1.57079632679489661923 0 3.14159265358979323846" xyz="0 0.10375 0"/> -->
+    <dynamics damping=".2" friction=".0"/>
+  </joint>
+  <transmission name="j2s7s300_joint_7_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="j2s7s300_joint_7">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="j2s7s300_joint_7_actuator">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>160</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <!-- Robotiq gripper -->
+  <link name="left_outer_knuckle">
+    <inertial>
+      <origin
+        rpy="0 0 0"
+        xyz="-0.000200000000003065 0.0199435877845359 0.0292245259211331"/>
+      <mass
+        value="0.00853198276973456" />
+      <inertia
+        ixx="2.89328108496468E-06"
+        ixy="-1.57935047237397E-19"
+        ixz="-1.93980378593255E-19"
+        iyy="1.86719750325683E-06"
+        iyz="-1.21858577871576E-06"
+        izz="1.21905238907251E-06" />
+    </inertial>
+    <visual>
+      <origin
+        rpy="0 0 0"
+        xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/visual/robotiq_arg2f_85_outer_knuckle.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        rpy="0 0 0"
+        xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/collision/robotiq_arg2f_85_outer_knuckle.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_outer_finger">
+    <inertial>
+      <origin
+        rpy="0 0 0"
+        xyz="0.00030115855001899 0.0373907951953854 -0.0208027427000385"/>
+      <mass
+        value="0.022614240507152" />
+      <inertia
+        ixx="1.52518312458174E-05"
+        ixy="9.76583423954399E-10"
+        ixz="-5.43838577022588E-10"
+        iyy="6.17694243867776E-06"
+        iyz="6.78636130740228E-06"
+        izz="1.16494917907219E-05" />
+    </inertial>
+    <visual>
+      <origin
+        rpy="0 0 0"
+        xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/visual/robotiq_arg2f_85_outer_finger.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        rpy="0 0 0"
+        xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/collision/robotiq_arg2f_85_outer_finger.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_inner_finger">
+    <inertial>
+      <origin
+        rpy="0 0 0"
+        xyz="0.000299999999999317 0.0160078233491243 -0.0136945669206257"/>
+      <mass
+        value="0.0104003125914103" />
+      <inertia
+        ixx="2.71909453810972E-06"
+        ixy="1.35402465472579E-21"
+        ixz="-7.1817349065269E-22"
+        iyy="7.69100314106116E-07"
+        iyz="6.74715432769696E-07"
+        izz="2.30315190420171E-06" />
+    </inertial>
+    <visual>
+      <origin
+        rpy="0 0 0"
+        xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/visual/robotiq_arg2f_85_inner_finger.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        rpy="0 0 0"
+        xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/collision/robotiq_arg2f_85_inner_finger.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_inner_finger_pad">
+    <visual>
+      <origin
+        rpy="0 0 0"
+        xyz="0 0 0"/>
+      <geometry>
+        <box size="0.022 0.00635 0.0375"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.9 0.9 0.9 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        rpy="0 0 0"
+        xyz="0 0 0"/>
+      <geometry>
+        <box size="0.022 0.00635 0.0375"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.9 0.0 0.0 1"/>
+      </material>
+    </collision>
+  </link>
+  <link name="left_inner_knuckle">
+    <inertial>
+      <origin
+        rpy="0 0 0"
+        xyz="0.000123011831763771 0.0507850843201817 0.00103968640075166"/>
+      <mass
+        value="0.0271177346495152" />
+      <inertia
+        ixx="2.61910379223783E-05"
+        ixy="-2.43616858946494E-07"
+        ixz="-6.37789906117123E-09"
+        iyy="2.8270243746167E-06"
+        iyz="-5.37200748039765E-07"
+        izz="2.83695868220296E-05" />
+    </inertial>
+    <visual>
+      <origin
+        rpy="0 0 0"
+        xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/visual/robotiq_arg2f_85_inner_knuckle.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        rpy="0 0 0"
+        xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/collision/robotiq_arg2f_85_inner_knuckle.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_outer_knuckle">
+    <inertial>
+      <origin
+        rpy="0 0 0"
+        xyz="-0.000200000000003065 0.0199435877845359 0.0292245259211331"/>
+      <mass
+        value="0.00853198276973456" />
+      <inertia
+        ixx="2.89328108496468E-06"
+        ixy="-1.57935047237397E-19"
+        ixz="-1.93980378593255E-19"
+        iyy="1.86719750325683E-06"
+        iyz="-1.21858577871576E-06"
+        izz="1.21905238907251E-06" />
+    </inertial>
+    <visual>
+      <origin
+        rpy="0 0 0"
+        xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/visual/robotiq_arg2f_85_outer_knuckle.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        rpy="0 0 0"
+        xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/collision/robotiq_arg2f_85_outer_knuckle.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_outer_finger">
+    <inertial>
+      <origin xyz="0.00030115855001899 0.0373907951953854 -0.0208027427000385" rpy="0 0 0" />
+      <mass value="0.022614240507152" />
+      <inertia ixx="1.52518312458174E-05" ixy="9.76583423954399E-10" ixz="-5.43838577022588E-10" iyy="6.17694243867776E-06" iyz="6.78636130740228E-06" izz="1.16494917907219E-05" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/visual/robotiq_arg2f_85_outer_finger.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/collision/robotiq_arg2f_85_outer_finger.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_inner_finger">
+    <inertial>
+      <origin xyz="0.000299999999999317 0.0160078233491243 -0.0136945669206257" rpy="0 0 0" />
+      <mass value="0.0104003125914103" />
+      <inertia ixx="2.71909453810972E-06" ixy="1.35402465472579E-21" ixz="-7.1817349065269E-22" iyy="7.69100314106116E-07" iyz="6.74715432769696E-07" izz="2.30315190420171E-06" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/visual/robotiq_arg2f_85_inner_finger.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/collision/robotiq_arg2f_85_inner_finger.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_inner_finger_pad">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.022 0.00635 0.0375"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.9 0.9 0.9 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.022 0.00635 0.0375"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.9 0.0 0.0 1"/>
+      </material>
+    </collision>
+  </link>
+  <link name="right_inner_knuckle">
+    <inertial>
+      <origin xyz="0.000123011831763771 0.0507850843201817 0.00103968640075166" rpy="0 0 0" />
+      <mass value="0.0271177346495152" />
+      <inertia ixx="2.61910379223783E-05" ixy="-2.43616858946494E-07" ixz="-6.37789906117123E-09" iyy="2.8270243746167E-06" iyz="-5.37200748039765E-07" izz="2.83695868220296E-05" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/visual/robotiq_arg2f_85_inner_knuckle.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/gripper/robotiq_2_85/meshes/collision/robotiq_arg2f_85_inner_knuckle.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="robotiq_finger_joint" type="revolute">
+    <origin rpy="0 0 3.141592653589793" xyz="0 -0.0306011 0.054904"/>
+    <parent link="robotiq_base_link"/>
+    <child link="left_outer_knuckle"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000" lower="-0.001" upper="0.8" velocity="2.0"/>
+    <dynamics damping="0.01" friction="0.001"/>
+  </joint>
+  <joint name="left_outer_finger_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.0315 -0.0041"/>
+    <parent link="left_outer_knuckle"/>
+    <child link="left_outer_finger"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+  <joint name="left_inner_knuckle_joint" type="revolute">
+    <!-- <origin xyz="0 ${reflect * -0.0127} 0.06142" rpy="${pi / 2 + .725} 0 ${(reflect - 1) * pi / 2}" /> -->
+    <origin rpy="0 0 3.141592653589793" xyz="0 -0.0127 0.06142"/>
+    <parent link="robotiq_base_link"/>
+    <child link="left_inner_knuckle"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000" lower="-0.001" upper="0.8757" velocity="2.0"/>
+    <dynamics damping="0.01" friction="0.001"/>
+    <!-- <mimic joint="robotiq_finger_joint" multiplier="1" offset="0"/> -->
+  </joint>
+  <joint name="left_inner_finger_joint" type="revolute">
+    <origin rpy="0 0 0" xyz="0 0.0061 0.0471"/>
+    <parent link="left_outer_finger"/>
+    <child link="left_inner_finger"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000" lower="-0.8757" upper="0.001" velocity="2.0"/>
+    <dynamics damping="0.01" friction="0.001"/>
+    <!-- <mimic joint="robotiq_finger_joint" multiplier="-1" offset="0"/> -->
+  </joint>
+  <joint name="left_inner_finger_pad_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.0220203446692936 0.03242"/>
+    <parent link="left_inner_finger"/>
+    <child link="left_inner_finger_pad"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+  <joint name="right_outer_knuckle_joint" type="revolute">
+    <origin rpy="0 0 0" xyz="0 0.0306011 0.054904"/>
+    <parent link="robotiq_base_link"/>
+    <child link="right_outer_knuckle"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000" lower="-0.001" upper="0.81" velocity="2.0"/>
+    <dynamics damping="0.01" friction="0.001"/>
+    <!-- <mimic joint="robotiq_finger_joint" multiplier="1" offset="0"/> -->
+  </joint>
+  <joint name="right_outer_finger_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.0315 -0.0041"/>
+    <parent link="right_outer_knuckle"/>
+    <child link="right_outer_finger"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+  <joint name="right_inner_knuckle_joint" type="revolute">
+    <!-- <origin xyz="0 ${reflect * -0.0127} 0.06142" rpy="${pi / 2 + .725} 0 ${(reflect - 1) * pi / 2}" /> -->
+    <origin rpy="0 0 0.0" xyz="0 0.0127 0.06142"/>
+    <parent link="robotiq_base_link"/>
+    <child link="right_inner_knuckle"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000" lower="-0.001" upper="0.8757" velocity="2.0"/>
+    <dynamics damping="0.01" friction="0.001"/>
+    <!-- <mimic joint="robotiq_finger_joint" multiplier="1" offset="0"/> -->
+  </joint>
+  <joint name="right_inner_finger_joint" type="revolute">
+    <origin rpy="0 0 0" xyz="0 0.0061 0.0471"/>
+    <parent link="right_outer_finger"/>
+    <child link="right_inner_finger"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000" lower="-0.8757" upper="0.001" velocity="2.0"/>
+    <dynamics damping="0.01" friction="0.001"/>
+    <!-- <mimic joint="robotiq_finger_joint" multiplier="-1" offset="0"/> -->
+  </joint>
+  <joint name="right_inner_finger_pad_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.0220203446692936 0.03242"/>
+    <parent link="right_inner_finger"/>
+    <child link="right_inner_finger_pad"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+  <transmission name="finger_joint_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="robotiq_finger_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_joint_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <!-- Mobile end-effector -->
+  <link name="mobile_end_effector">
+    <inertial>
+      <mass value="0.00001"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.57079632679489661923 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_base_urdf/model/base/v3/meshes/Coordinate.STL"/>
+      </geometry>
+    </visual>
+  </link>
+  <joint name="joint_mobile_end_effector_end_effector" type="revolute">
+    <parent link="robotiq_base_link"/>
+    <child link="mobile_end_effector"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1e-8" lower="0" upper="1e-8" velocity="1e-8"/>
+    <origin rpy="0 -1.57079632679489661923 3.141592653589793" xyz="0 0 0.12"/>
+  </joint> 
+</robot>

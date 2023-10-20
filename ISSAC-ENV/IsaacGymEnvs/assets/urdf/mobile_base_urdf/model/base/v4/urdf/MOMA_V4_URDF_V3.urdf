@@ -1,0 +1,953 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="MOMA_V4_URDF_V3">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0311802154982621 1.17504338130459E-05 0.315211906825966"
+        rpy="0 0 0" />
+      <mass
+        value="8.7968329124645" />
+      <inertia
+        ixx="0.186258716514256"
+        ixy="-1.48518742834124E-05"
+        ixz="-0.00154696059136798"
+        iyy="0.203780508528874"
+        iyz="1.05129920553985E-05"
+        izz="0.079091000039605" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Lidar">
+    <inertial>
+      <origin
+        xyz="6.20383105998101E-10 0.0216642806157543 -9.5633137657869E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.111414847916921" />
+      <inertia
+        ixx="4.42568757050089E-05"
+        ixy="5.54707912683361E-13"
+        ixz="-1.43915040446869E-12"
+        iyy="4.24275016408878E-05"
+        iyz="-1.99911186975257E-07"
+        izz="4.38954994136943E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/Lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.258823529411765 0.258823529411765 0.258823529411765 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/Lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_Lidar"
+    type="fixed">
+    <origin
+      xyz="0.1985 0 0.095"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="Lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="UniWheelPivot_RF">
+    <inertial>
+      <origin
+        xyz="-0.0289122121608881 7.96029908656237E-14 -0.0182260960322876"
+        rpy="0 0 0" />
+      <mass
+        value="0.0847351495375796" />
+      <inertia
+        ixx="3.34756139191196E-05"
+        ixy="7.50114488966578E-17"
+        ixz="-1.16340041790674E-05"
+        iyy="6.07135705376021E-05"
+        iyz="3.20838303655994E-17"
+        izz="3.49474283390519E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/UniWheelPivot_RF.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/UniWheelPivot_RF.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_UniWheelPivot_RF"
+    type="continuous">
+    <origin
+      xyz="0.185 -0.1585 -0.0043169"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="UniWheelPivot_RF" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="UniWheel_RF">
+    <inertial>
+      <origin
+        xyz="2.82717186675385E-08 2.14311952628776E-08 3.03619636168873E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.131455385692783" />
+      <inertia
+        ixx="4.67616618745289E-05"
+        ixy="-2.20955469793984E-11"
+        ixz="-5.77989335033432E-10"
+        iyy="8.85134138944847E-05"
+        iyz="-2.24056751711574E-11"
+        izz="4.67628266240816E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/UniWheel_RF.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/UniWheel_RF.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_UniWheel_RF"
+    type="continuous">
+    <origin
+      xyz="-0.042183 0 -0.024"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="UniWheelPivot_RF" />
+    <child
+      link="UniWheel_RF" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="UniWheelPivot_LF">
+    <inertial>
+      <origin
+        xyz="-0.028912212160888 7.96029908656237E-14 -0.0182260960322876"
+        rpy="0 0 0" />
+      <mass
+        value="0.0847351495375796" />
+      <inertia
+        ixx="3.34756139191196E-05"
+        ixy="7.50107342044398E-17"
+        ixz="-1.16340041790674E-05"
+        iyy="6.07135705376022E-05"
+        iyz="3.20810669265241E-17"
+        izz="3.49474283390519E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/UniWheelPivot_LF.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/UniWheelPivot_LF.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_UniWheelPivot_LF"
+    type="continuous">
+    <origin
+      xyz="0.185 0.1585 -0.00431688785512865"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="UniWheelPivot_LF" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="UniWheel_LF">
+    <inertial>
+      <origin
+        xyz="-1.63190614910214E-08 2.14311952073665E-08 3.81421963735473E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.131455385692783" />
+      <inertia
+        ixx="4.67630636523249E-05"
+        ixy="1.15437256666207E-11"
+        ixz="-4.25528389794276E-11"
+        iyy="8.85134138944848E-05"
+        iyz="-2.92740747055511E-11"
+        izz="4.67614248462869E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/UniWheel_LF.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/UniWheel_LF.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_UniWheel_LF"
+    type="continuous">
+    <origin
+      xyz="-0.042183 0 -0.024"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="UniWheelPivot_LF" />
+    <child
+      link="UniWheel_LF" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="UniWheelPivot_RB">
+    <inertial>
+      <origin
+        xyz="-0.0289122121598695 7.96029908656237E-14 -0.0182260960322876"
+        rpy="0 0 0" />
+      <mass
+        value="0.0847351495375796" />
+      <inertia
+        ixx="3.34756139191196E-05"
+        ixy="7.50002400117997E-17"
+        ixz="-1.16340041790674E-05"
+        iyy="6.07135705376021E-05"
+        iyz="3.2068961265564E-17"
+        izz="3.49474283390519E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/UniWheelPivot_RB.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/UniWheelPivot_RB.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_UniWheelPivot_RB"
+    type="continuous">
+    <origin
+      xyz="-0.185 -0.1585 -0.00431688785512863"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="UniWheelPivot_RB" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="UniWheel_RB">
+    <inertial>
+      <origin
+        xyz="-1.63190614563269E-08 2.14311951796109E-08 3.81421963388529E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.131455385692783" />
+      <inertia
+        ixx="4.67630636523245E-05"
+        ixy="1.15437256434612E-11"
+        ixz="-4.25528389606465E-11"
+        iyy="8.85134138944848E-05"
+        iyz="-2.92740747818311E-11"
+        izz="4.67614248462865E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/UniWheel_RB.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/UniWheel_RB.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_UniWheel_RB"
+    type="continuous">
+    <origin
+      xyz="-0.042183 0 -0.024"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="UniWheelPivot_RB" />
+    <child
+      link="UniWheel_RB" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="UniWheelPivot_LB">
+    <inertial>
+      <origin
+        xyz="-0.0289122121598694 7.95752352900081E-14 -0.0182260960322876"
+        rpy="0 0 0" />
+      <mass
+        value="0.0847351495375797" />
+      <inertia
+        ixx="3.34756139191196E-05"
+        ixy="7.50052988252789E-17"
+        ixz="-1.16340041790674E-05"
+        iyy="6.07135705376022E-05"
+        iyz="3.20738964835275E-17"
+        izz="3.49474283390519E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/UniWheelPivot_LB.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/UniWheelPivot_LB.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_UniWheelPivot_LB"
+    type="continuous">
+    <origin
+      xyz="-0.185 0.1585 -0.0043169"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="UniWheelPivot_LB" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="UniWheel_LB">
+    <inertial>
+      <origin
+        xyz="-1.63190614910214E-08 2.14311952073665E-08 3.81421963596695E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.131455385692783" />
+      <inertia
+        ixx="4.67630636523245E-05"
+        ixy="1.15437256326157E-11"
+        ixz="-4.25528389682312E-11"
+        iyy="8.85134138944848E-05"
+        iyz="-2.92740746535266E-11"
+        izz="4.67614248462866E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/UniWheel_LB.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/UniWheel_LB.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_UniWheel_LB"
+    type="continuous">
+    <origin
+      xyz="-0.0421831121443616 0 -0.024"
+      rpy="0 -1.5707963267949 0" />
+    <parent
+      link="UniWheelPivot_LB" />
+    <child
+      link="UniWheel_LB" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="DriWheel_L">
+    <inertial>
+      <origin
+        xyz="7.00910488723022E-19 2.29657315570231E-06 8.67361737988404E-19"
+        rpy="0 0 0" />
+      <mass
+        value="0.991630823915776" />
+      <inertia
+        ixx="0.00184507083744811"
+        ixy="-3.379158989595E-21"
+        ixz="3.3889717648391E-36"
+        iyy="0.00334198159600445"
+        iyz="5.46421202140047E-36"
+        izz="0.00184507083744811" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/DriWheel_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/DriWheel_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_DriWheel_L"
+    type="continuous">
+    <origin
+      xyz="0 0.19697 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="DriWheel_L" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="DriWheel_R">
+    <inertial>
+      <origin
+        xyz="3.80487199906632E-18 -2.29657315570231E-06 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.991630823915776" />
+      <inertia
+        ixx="0.00184507083744811"
+        ixy="4.54703773356873E-19"
+        ixz="1.69406589450849E-21"
+        iyy="0.00334198159600445"
+        iyz="-8.74951063712164E-22"
+        izz="0.00184507083744811" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/DriWheel_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/DriWheel_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_DriWheel_R"
+    type="continuous">
+    <origin
+      xyz="0 -0.19697 0"
+      rpy="0 0.004633 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="DriWheel_R" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="ArmBase">
+    <inertial>
+      <origin
+        xyz="-0.0306974842711243 -0.000955398394232504 0.0354516942274083"
+        rpy="0 0 0" />
+      <mass
+        value="0.833236204792763" />
+      <inertia
+        ixx="0.00262276376774655"
+        ixy="-6.9599475549375E-07"
+        ixz="5.15168201230645E-05"
+        iyy="0.00186363387009509"
+        iyz="8.78496595339785E-07"
+        izz="0.00105932573712803" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/ArmBase.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.796078431372549 0.823529411764706 0.937254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/ArmBase.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_ArmBase"
+    type="prismatic">
+    <origin
+      xyz="0.063 0.001 0.2955"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="ArmBase" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0.585"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="BodyShell">
+    <inertial>
+      <origin
+        xyz="-0.00438421880768753 8.31574203594421E-05 0.375180994226469"
+        rpy="0 0 0" />
+      <mass
+        value="6.96027412074526" />
+      <inertia
+        ixx="0.54240738104732"
+        ixy="-3.13858711109322E-05"
+        ixz="-0.0126584262855019"
+        iyy="0.492210055619746"
+        iyz="4.12720577585476E-05"
+        izz="0.251787815510178" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/BodyShell.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/BodyShell.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_BodyShell"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="BodyShell" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="PanSet">
+    <inertial>
+      <origin
+        xyz="0.000554299127061951 -3.49485223612167E-06 0.0547778067465923"
+        rpy="0 0 0" />
+      <mass
+        value="0.226677336025464" />
+      <inertia
+        ixx="0.000142637008072705"
+        ixy="2.77462848098286E-10"
+        ixz="4.76129503110727E-17"
+        iyy="7.22794203939845E-05"
+        iyz="-2.37581213250001E-16"
+        izz="0.000154987832286111" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/PanSet.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/PanSet.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_PanSet"
+    type="continuous">
+    <origin
+      xyz="0 0 1.0091"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="PanSet" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="TiltSet">
+    <inertial>
+      <origin
+        xyz="0.00627852264147075 -1.3351967463604E-05 0.0451641775455638"
+        rpy="0 0 0" />
+      <mass
+        value="0.337334688556195" />
+      <inertia
+        ixx="0.00094709872727437"
+        ixy="2.97365722461131E-07"
+        ixz="-4.12017268066108E-06"
+        iyy="0.000509489116148601"
+        iyz="-2.57100827181398E-08"
+        izz="0.00142454025924575" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/TiltSet.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/TiltSet.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_TiltSet"
+    type="continuous">
+    <origin
+      xyz="0 0 0.10056"
+      rpy="0 0.019568 0" />
+    <parent
+      link="PanSet" />
+    <child
+      link="TiltSet" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="HeadShell">
+    <inertial>
+      <origin
+        xyz="-0.00389933532083145 0.0427764441730733 0.87165278052167"
+        rpy="0 0 0" />
+      <mass
+        value="0.354445891112852" />
+      <inertia
+        ixx="0.00118414996131452"
+        ixy="-0.000144474967856168"
+        ixz="-1.2439502307308E-06"
+        iyy="0.00211641739988207"
+        iyz="8.93972375142148E-06"
+        izz="0.00314939565459275" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/HeadShell.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/HeadShell.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_HeadShell"
+    type="fixed">
+    <origin
+      xyz="0.049958 -0.0025918 -0.81864"
+      rpy="-0.019346 -0.0029375 1.4201" />
+    <parent
+      link="TiltSet" />
+    <child
+      link="HeadShell" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="NeckShell">
+    <inertial>
+      <origin
+        xyz="-0.00241306537212758 0.033137204350725 0.788402712710511"
+        rpy="0 0 0" />
+      <mass
+        value="0.137012264555895" />
+      <inertia
+        ixx="0.000183280169998726"
+        ixy="-2.80282933564336E-05"
+        ixz="-3.68462241307317E-07"
+        iyy="0.000363621283724574"
+        iyz="2.46058968589238E-06"
+        izz="0.000261586764660329" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/NeckShell.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://MOMA_V4_URDF_V3/meshes/NeckShell.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JT_NeckShell"
+    type="fixed">
+    <origin
+      xyz="-0.033931 0.0025889 -0.72354"
+      rpy="0 0 -1.7215" />
+    <parent
+      link="PanSet" />
+    <child
+      link="NeckShell" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
