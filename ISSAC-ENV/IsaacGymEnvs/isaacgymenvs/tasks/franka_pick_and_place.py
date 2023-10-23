@@ -147,7 +147,9 @@ class FrankaPickPlace(VecTask):
         # Franka defaults
         # for kinova arm: the 4th is the elevator height, the last two are gripper fingers
         self.franka_default_dof_pos = to_torch(
-            [-0.3, 0, 0, 0.5, 0.1963, 0, 0.5, 0, 0.5, 0.7854, 0.035, 0.035, 0,0, 0.035, 0.035], device=self.device
+            [0.1, 0, 0, 0.7, 
+             0.1963, 0, 0.5, 0, 0.5, 0.7854, 0.035, 
+             0.0, 0,0, 0.0, 0.0], device=self.device
         )
 
         # OSC Gains
@@ -254,6 +256,7 @@ class FrankaPickPlace(VecTask):
         print("num franka dofs: ", self.num_franka_dofs)
 
         # set franka dof properties
+        # import ipdb;ipdb.set_trace()
         franka_dof_props = self.gym.get_asset_dof_properties(franka_asset)
         # import ipdb
         # ipdb.set_trace()
@@ -653,12 +656,12 @@ class FrankaPickPlace(VecTask):
 
     def pre_physics_step(self, actions):
         self.actions = actions.clone().to(self.device)
-
         # Split arm and gripper command
         u_arm, u_gripper = self.actions[:, :-1], self.actions[:, -1]
 
-        # print(u_arm, u_gripper)
-        # print(self.cmd_limit, self.action_scale)
+        print(u_arm, u_gripper)
+        print(self.cmd_limit, self.action_scale)
+        # import ipdb;ipdb.set_trace()
 
         # Control arm (scale value first)
         u_arm = u_arm * self.cmd_limit / self.action_scale
