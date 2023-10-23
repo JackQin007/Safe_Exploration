@@ -145,8 +145,9 @@ class FrankaPickPlace(VecTask):
         super().__init__(config=self.cfg, rl_device=rl_device, sim_device=sim_device, graphics_device_id=graphics_device_id, headless=headless, virtual_screen_capture=virtual_screen_capture, force_render=force_render)
 
         # Franka defaults
+        # for kinova arm: the 4th is the elevator height, the last two are gripper fingers
         self.franka_default_dof_pos = to_torch(
-            [-0.3,0,0,0.5, 0.1963, 0, 0.5, 0, 0.5, 0.7854, 0.035, 0.035,0,0], device=self.device
+            [-0.3, 0, 0, 0.5, 0.1963, 0, 0.5, 0, 0.5, 0.7854, 0.035, 0.035, 0,0, 0.035, 0.035], device=self.device
         )
 
         # OSC Gains
@@ -216,19 +217,19 @@ class FrankaPickPlace(VecTask):
             franka_asset = self.gym.load_asset(self.sim, asset_root, franka_asset_file, asset_options)
         except Exception as e:
             print(e)
-        franka_dof_stiffness = to_torch([0, 0, 0, 0 , 0, 0, 0, 0, 0, 0, 0, 5000., 5000. ,0], dtype=torch.float, device=self.device)
-        franka_dof_damping = to_torch([0, 0, 0, 0 ,0, 0, 0, 0, 0, 0, 0, 1.0e2, 1.0e2,0.], dtype=torch.float, device=self.device)
+        franka_dof_stiffness = to_torch([0, 0, 0, 0 , 0, 0, 0, 0, 0, 0, 0, 5000., 5000. ,0, 1.0e6, 1.0e6], dtype=torch.float, device=self.device)
+        franka_dof_damping = to_torch([0, 0, 0, 0 ,0, 0, 0, 0, 0, 0, 0, 1.0e2, 1.0e2, 0., 1.0e2, 1.0e2], dtype=torch.float, device=self.device)
 
         # Create table asset
         table_pos = [0.0, 0.0, 0.5]
         table_thickness = 0.05
         table_opts = gymapi.AssetOptions()
         table_opts.fix_base_link = True
-        table_asset = self.gym.create_box(self.sim, *[1.2, 1.2, table_thickness], table_opts)
+        table_asset = self.gym.create_box(self.sim, *[0.5, 1.2, table_thickness], table_opts)
 
         # Create table stand asset
-        table_stand_height = 0.1
-        table_stand_pos = [-0.5, 0.0, 0 + table_thickness / 2 + table_stand_height / 2]
+        table_stand_height = 0.5
+        table_stand_pos = [0.0, 0.0, 0 + table_thickness / 2 + table_stand_height / 2]
         table_stand_opts = gymapi.AssetOptions()
         table_stand_opts.fix_base_link = True
         table_stand_asset = self.gym.create_box(self.sim, *[0.2, 0.2, table_stand_height], table_opts)
@@ -254,6 +255,8 @@ class FrankaPickPlace(VecTask):
 
         # set franka dof properties
         franka_dof_props = self.gym.get_asset_dof_properties(franka_asset)
+        # import ipdb
+        # ipdb.set_trace()
         self.franka_dof_lower_limits = []
         self.franka_dof_upper_limits = []
         self._franka_effort_limits = []
@@ -281,7 +284,7 @@ class FrankaPickPlace(VecTask):
         # Define start pose for franka
         franka_start_pose = gymapi.Transform()
         # franka_start_pose.p = gymapi.Vec3(-0.45, 0.0, 1.0 + table_thickness / 2 + table_stand_height)
-        franka_start_pose.p = gymapi.Vec3(-0.45, 0.0, 0.0)
+        franka_start_pose.p = gymapi.Vec3(-0.6, 0.0, 0.1)
 
         franka_start_pose.r = gymapi.Quat(0.0, 0.0, 0.0, 1.0)
 
@@ -491,7 +494,7 @@ class FrankaPickPlace(VecTask):
         self._cubeB_state[env_ids] = self._init_cubeB_state[env_ids]
 
         # Reset agent
-        reset_noise = torch.rand((len(env_ids), 14), device=self.device)
+        reset_noise = torch.rand((len(env_ids), self.num_franka_dofs), device=self.device)
       
         # import ipdb; ipdb.set_trace()
         pos = tensor_clamp(
